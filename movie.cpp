@@ -33,7 +33,7 @@ int main() {
          * For example, to match all `.mp4` and `.mkv` video files
          * in the given search paths, we can do something like:
          *
-         * std::regex pattern_to_match("(.*)(\\.mp4|\\.mkv|\\.MP4|\\.MKV)((\\ *\t*)*)");
+         * const std::regex pattern_to_match("(.*)(\\.mp4|\\.mkv|\\.MP4|\\.MKV)((\\ *\t*)*)");
          */
 
         const std::regex pattern_to_match("(.*)");

@@ -6,7 +6,7 @@
 #include <regex>
 #include <vector>
 
-inline void signal_handler(int signal_code) {
+inline void signal_handler(const int signal_code) {
     std::cerr << std::endl << "Keyboard Interrupt!" << std::endl;
     exit(128 + signal_code);
 }
@@ -17,7 +17,7 @@ int main() {
     std::vector<std::string> candidate_items;
 
     try {
-        std::vector<std::string> search_paths = {
+        const std::vector<std::string> search_paths = {
             /*
              * Put all valid search paths here (comma separated)
              *
@@ -36,7 +36,7 @@ int main() {
          * std::regex pattern_to_match("(.*)(\\.mp4|\\.mkv|\\.MP4|\\.MKV)((\\ *\t*)*)");
          */
 
-        std::regex pattern_to_match("(.*)");
+        const std::regex pattern_to_match("(.*)");
 
         namespace fs = std::filesystem;
 

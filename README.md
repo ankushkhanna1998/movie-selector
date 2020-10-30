@@ -24,7 +24,7 @@ Some time back (in 2020), I accidentally removed this source (along with the exe
 
 So, I definitely wanted to write it back again, and in a better way, in terms of design and coding, as I believe I had a lot more knowledge compared to what I had at that time. Plus, this time C++ also had become a lot more advanced than what it used to be. So this is my new implementation, which, in a sense, is lot more generic and general purpose.
 
-Though it is very general purpose, still the the only reason why I named it to _movie.cpp_, and the repository as _movie-selector_, is to pay my respects to the original source. 🙇🏻‍♂️️
+Though it is very general purpose, still the the only reason why I named it to `movie.cpp`, and the repository as `movie-selector`, is to pay my respects to the original source. 🙇🏻‍♂️️
 
 And, by the way, this is how I compiled it for myself:
 

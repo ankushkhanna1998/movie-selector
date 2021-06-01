@@ -6,7 +6,7 @@
 #include <regex>
 #include <vector>
 
-inline void signal_handler(const int signal_code) {
+void signal_handler(int signal_code) {
     std::cerr << std::endl << "Keyboard Interrupt!" << std::endl;
     exit(128 + signal_code);
 }

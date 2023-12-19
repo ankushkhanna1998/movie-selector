@@ -1,6 +1,6 @@
 # Movie Selector
 
-This is a console application written in C++ (GNU ISO C++17) which helps select a random movie to watch from the available ones in the given directories.
+This is a console application written in C++ (initially in ISO C++17) which helps select a random movie to watch from the available ones in the given directories.
 
 Basically, not just movies, it can be used to select anything from anywhere. One just needs to write a valid [Regular Expression](https://en.wikipedia.org/wiki/Regular_expression) to match the desired files in the given directories, and then among the matched ones, this application provides a random file name.
 
@@ -11,10 +11,17 @@ One just needs to add the search path(s) as mentioned in the code (where we have
 Then, one needs to compile the code. The most simple way to do so is:
 
 ```bash
-g++ -std=c++17 -o movie movie.cpp
+mkdir --parents build/
+g++ -std=c++17 -o build/movie movie.cpp
 ```
 
-You can use the compile options of your choice, just make sure you compile the source with C++17 enabled (`-std=c++17` or `-std=gnu++17`), as this code makes use of the `std::filesystem` API which came out with the ISO C++17 standard.
+Running it is simple then:
+
+```bash
+./build/movie
+```
+
+You can use the compile options of your choice, just make sure you compile the source with C++17 (or higher) enabled (`-std=c++17`, `-std=gnu++17` or higher), as this code makes use of the `std::filesystem` API which came out with the ISO C++17 standard.
 
 ### Some History (in case you're interested)
 
@@ -29,5 +36,5 @@ Though it is very general purpose, still the the only reason why I named it to `
 And, by the way, this is how I compiled it for myself:
 
 ```bash
-g++ -no-pie -fno-pie -pthread -Wall -Wextra -Wpedantic -O3 -g -std=gnu++17 -o movie movie.cpp
+g++ -no-pie -fno-pie -fsanitize=address -fno-omit-frame-pointer -fno-common -pthread -Wall -Wextra -Wpedantic -O3 -ggdb3 -std=c++23 -o build/movie movie.cpp
 ```

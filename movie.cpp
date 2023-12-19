@@ -6,9 +6,9 @@
 #include <regex>
 #include <vector>
 
-void signal_handler(int signal_code) {
+inline void signal_handler(const int signal_code) {
     std::cerr << std::endl << "Keyboard Interrupt!" << std::endl;
-    exit(128 + signal_code);
+    exit(128 | signal_code);
 }
 
 int main() {
@@ -38,10 +38,11 @@ int main() {
 
         const std::regex pattern_to_match("(.*)");
 
-        namespace fs = std::filesystem;
+        using std::filesystem::directory_entry;
+        using std::filesystem::recursive_directory_iterator;
 
         for (const std::string &search_path : search_paths) {
-            for (const fs::directory_entry &entry : fs::recursive_directory_iterator(search_path)) {
+            for (const directory_entry &entry : recursive_directory_iterator(search_path)) {
                 if (entry.is_regular_file() && std::regex_match(entry.path().filename().string(), pattern_to_match)) {
                     candidate_items.push_back(entry.path().filename().string());
                 }
@@ -54,7 +55,7 @@ int main() {
         std::cerr << "    Unmounted Device, and/or" << std::endl;
         std::cerr << "    Invalid/Incorrect/Non-Existing/Restricted Search Path, and/or" << std::endl;
         std::cerr << "    Invalid/Incorrect Regular Expression Matching Pattern, ..., etc." << std::endl << std::endl;
-        exit(128 + 126);
+        exit(128 | 126);
     }
 
     if (candidate_items.empty()) {
